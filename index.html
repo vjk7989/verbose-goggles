@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .form-container {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px;
+            background-color: #28a745;
+            border: none;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        p {
+            margin-top: 10px;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Login Form -->
+    <div class="form-container" id="loginForm">
+        <h2>Login</h2>
+        <input type="text" id="loginUsername" placeholder="Username" required>
+        <input type="password" id="loginPassword" placeholder="Password" required>
+        <button onclick="login()">Login</button>
+        <p>Don't have an account? <a href="#" onclick="showSignup()">Sign up here</a></p>
+    </div>
+
+    <!-- Signup Form -->
+    <div class="form-container" id="signupForm" style="display:none;">
+        <h2>Sign Up</h2>
+        <input type="text" id="signupUsername" placeholder="Username" required>
+        <input type="text" id="signupEmpid" placeholder="Employee ID" required>
+        <input type="email" id="signupEmail" placeholder="Email" required>
+        <input type="password" id="signupPassword" placeholder="Password" required>
+        <button onclick="signup()">Sign Up</button>
+        <p>Already have an account? <a href="http://localhost:3000/" onclick="showLogin()">Login here</a></p>
+    </div>
+
+    <script>
+        // In-memory storage for users
+        const users = {
+            "admin": {
+                "empid": "12345",
+                "email": "admin@example.com",
+                "password": "admin"
+            }
+        };
+
+        function showSignup() {
+            document.getElementById("loginForm").style.display = "none";
+            document.getElementById("signupForm").style.display = "block";
+        }
+
+        function showLogin() {
+            document.getElementById("signupForm").style.display = "none";
+            document.getElementById("loginForm").style.display = "block";
+        }
+
+        function login() {
+            const username = document.getElementById("loginUsername").value;
+            const password = document.getElementById("loginPassword").value;
+
+            if (users[username] && users[username].password === password) {
+                alert("Login successful!");
+                // Redirect to specified link
+                window.location.href = "https://www.example.com"; // Change this URL later
+            } else {
+                alert("Invalid username or password.");
+            }
+        }
+
+        function signup() {
+            const username = document.getElementById("signupUsername").value;
+            const empid = document.getElementById("signupEmpid").value;
+            const email = document.getElementById("signupEmail").value;
+            const password = document.getElementById("signupPassword").value;
+
+            if (users[username]) {
+                alert("Username already exists.");
+                return;
+            }
+
+            users[username] = { empid, email, password };
+            alert("Sign up successful! You can now log in.");
+            showLogin();
+        }
+    </script>
+
+</body>
+</html>
