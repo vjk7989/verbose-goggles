@@ -1,0 +1,42 @@
+.blogCard {
+    border-radius: 12px; /* Slightly more rounded corners */
+    background-color: #f0fdf4; /* Light green background for a calming effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08), 
+                0 6px 20px rgba(0, 0, 0, 0.1); /* Softer shadows */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
+    border: 1px solid #d4edda; /* Subtle green border */
+    
+    &:hover {
+        transform: translateY(-10px); /* Lift effect on hover */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15), 
+                    0 12px 40px rgba(0, 0, 0, 0.15); /* Increased shadow for hover */
+        background-color: #e9f5ec; /* Slightly darker green on hover */
+    }
+
+    .title {
+        margin-bottom: 10px;
+        font-weight: bold;
+        font-size: 1.25rem; /* Larger font for emphasis */
+        color: #2e7d32; /* Darker green for titles */
+    }
+
+    .description {
+        margin-bottom: 15px;
+        color: #4e5d5a; /* Softer text color */
+        font-size: 1rem; /* Comfortable reading size */
+    }
+
+    .MuiCardActions-root {
+        float: right;
+
+        button {
+            font-weight: bold;
+            color: #388e3c; /* Green color for buttons */
+            
+            &:hover {
+                color: #2e7d32; /* Darker green on hover */
+            }
+        }
+    }
+}
+    

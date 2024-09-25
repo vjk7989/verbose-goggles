@@ -1,0 +1,51 @@
+@import '../../Variables.scss';
+
+.waterCard {
+    padding: 20px;
+    background-color: #f9fdfb; /* Light green background for a calming effect */
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    transition: box-shadow 0.3s ease; /* Smooth shadow transition */
+
+    &:hover {
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+    }
+}
+
+.historyCard {
+    padding: 20px;
+    background-color: #f9fdfb; /* Light green background */
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+.targetCard {
+    padding: 20px;
+    background-color: #f9fdfb; /* Light green background */
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+.info-txt {
+    text-align: center;
+    color: var(--text-blue); /* Use your theme color */
+    font-size: 16px;
+    margin-top: 15px;
+}
+
+.alt-txt {
+    text-align: center;
+    flex-direction: column !important;
+
+    svg {
+        position: relative;
+        left: 45%;
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .waterCard {
+        padding: 20px 0;
+    }
+}
